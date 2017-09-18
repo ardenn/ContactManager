@@ -31,7 +31,8 @@ class ContactManager:
         for contact in self.contacts:
             if contact.email == del_email:
                 self.contacts.remove(contact)
-                return contact
+                print("Deletion Successful!\nThese are your remaining contacts:")
+                my_manager.displayContacts()
         else:
             return "Sorry that contact does not exist!!"
 
@@ -75,9 +76,7 @@ while True:
         elif response == 2:
             print(my_manager.searchContact())
         elif response == 3:
-            my_manager.deleteContact()
-            print("Deletion Successful!\nThese are your remaining contacts:")
-            my_manager.displayContacts()
+            print(my_manager.deleteContact())
         else:
             print("Exiting...")
             break
