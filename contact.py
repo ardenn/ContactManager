@@ -1,6 +1,3 @@
-import sys
-
-
 class Contact:
     """docstring for Contact"""
 
@@ -40,6 +37,7 @@ class ContactManager:
 
     def searchContact(self):
         search_email = input("Enter Contact Email: ")
+        print("Your search matched the following:")
         for contact in self.contacts:
             if contact.email == search_email:
                 return contact
@@ -75,11 +73,10 @@ while True:
 
             my_manager.addContact(Contact(c_name, c_email, cell, work))
         elif response == 2:
-        	print("Your search matched the following:")
             print(my_manager.searchContact())
         elif response == 3:
             my_manager.deleteContact()
-            print("Deletion Successful!")
+            print("Deletion Successful!\nThese are your remaining contacts:")
             my_manager.displayContacts()
         else:
             print("Exiting...")
