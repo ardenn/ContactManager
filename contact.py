@@ -75,9 +75,11 @@ while True:
 
             my_manager.addContact(Contact(c_name, c_email, cell, work))
         elif response == 2:
+        	print("Your search matched the following:")
             print(my_manager.searchContact())
         elif response == 3:
             my_manager.deleteContact()
+            print("Deletion Successful!")
             my_manager.displayContacts()
         else:
             print("Exiting...")
