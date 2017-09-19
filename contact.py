@@ -41,7 +41,7 @@ class ContactManager:
         print("Your search matched the following:")
         for contact in self.contacts:
             if search_name in contact.name:
-                return contact
+                print(contact)
         else:
             return "Sorry that contact does not exist!!"
 
@@ -74,7 +74,7 @@ while True:
 
             my_manager.addContact(Contact(c_name, c_email, cell, work))
         elif response == 2:
-            print(my_manager.searchContact())
+            my_manager.searchContact()
         elif response == 3:
             print(my_manager.deleteContact())
         else:
