@@ -1,6 +1,3 @@
-import csv
-
-
 class Contact:
     """docstring for Contact"""
 
