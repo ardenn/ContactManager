@@ -37,10 +37,10 @@ class ContactManager:
             return "Sorry that contact does not exist!!"
 
     def searchContact(self):
-        search_email = input("Enter Contact Email: ")
+        search_name = input("Enter Contact Name: ")
         print("Your search matched the following:")
         for contact in self.contacts:
-            if contact.email == search_email:
+            if search_name in contact.name:
                 return contact
         else:
             return "Sorry that contact does not exist!!"
