@@ -24,28 +24,41 @@ class ContactManager:
 
     def addContact(self, contact):
         self.contacts.append(contact)
-        my_manager.displayContacts()
+        self.displayContacts()
 
     def deleteContact(self, del_email):
+        contact_found = False
+
         for contact in self.contacts:
             if contact.email == del_email:
+                contact_found = True
                 self.contacts.remove(contact)
-                print("Deletion Successful!\nThese are your remaining contacts:")
-                my_manager.displayContacts()
-        else:
-            return "Sorry that contact does not exist!!"
+                print("Deletion Successful!")
+
+        if not contact_found:
+            print("Sorry that contact does not exist!!")
+
+        print("These are your remaining contacts:")
+        self.displayContacts()
 
     def searchContact(self, search_name):
+        contact_found = False
+
         print("Your search matched the following:")
         for contact in self.contacts:
             if search_name in contact.name:
+                contact_found = True
                 print(contact)
-        else:
+
+        if not contact_found:
             print("Sorry that contact does not exist!!")
 
     def displayContacts(self):
-        for contact in self.contacts:
-            print(contact)
+        if len(self.contacts) == 0:
+            print("Sorry no contacts to display!!")
+        else:
+            for contact in self.contacts:
+                print(contact)
 
     def readFromFile(self, filename):
         with open(filename) as read_file:
@@ -98,7 +111,7 @@ while True:
             my_manager.searchContact(search_name)
         elif response == 3:
             del_email = input("Enter Contact Email: ")
-            print(my_manager.deleteContact(del_email))
+            my_manager.deleteContact(del_email)
         elif response == 4:
             filename = input("Enter Filename to write to: ")
             my_manager.writeToFile(filename)
